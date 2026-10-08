@@ -1,0 +1,6 @@
+format_version = 1
+[[lifecycle]]
+subject = "tree-sitter-typescript"
+status = "active"
+from = 2026-10-08
+reason = "cgofree releases it from its first release on"
