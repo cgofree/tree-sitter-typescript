@@ -1,0 +1,21 @@
+format_version = 1
+repository_layout = "standalone"
+release_branches = ["main"]
+
+[[releasables]]
+name = "tree-sitter-typescript"
+tag_format = "v{version}"
+publish_mode = "ci"
+
+[[members]]
+path = "."
+name = "root"
+releasable = "tree-sitter-typescript"
+targets = [{ name = "go" }]
+
+[[members.pipelines]]
+name = "go"
+type = "go"
+target = "go"
+local = false
+artifact = "library"
