@@ -9,3 +9,11 @@ subject = "tree-sitter-typescript"
 license = "MIT"
 from = 2026-10-08
 reason = "the license of upstream tree-sitter-typescript, as its license file states"
+[[identities]]
+subject = "tree-sitter-typescript"
+facet = "releasable-name"
+value = "tree-sitter-typescript"
+registry = ""
+tag_patterns = ["v*"]
+from = 2026-10-08
+reason = "the repository's name, under which cgofree releases it"
