@@ -1,0 +1,85 @@
+# The inputs of this release: what cgofree generated this repository's
+# packages from, and what it measured. Written by cgofree release; do not edit.
+format_version = 1
+library = "tree-sitter"
+repository = "tree-sitter-typescript"
+recipe_sha256 = "288d0cd802672a095c790fde40a4f38d80edcb31dbc6f460ca5911a083ae4017"
+
+[upstream]
+name = "tree-sitter-typescript"
+url = "https://github.com/tree-sitter/tree-sitter-typescript"
+tag = "v0.23.2"
+commit = "f975a621f4e7f532fe322e13c4f79495e0a7b2e7"
+
+[runtime]
+module = "github.com/cgofree/tree-sitter"
+version = "v0.1.0"
+
+[translator]
+module = "github.com/stricttools/wasm-to-go"
+version = "v0.5.0"
+commit = "2f70806c64d1454e63929d41df93867884702896"
+passes = [
+  "wasm-opt --low-memory-unused --converge -O4 --enable-mutable-globals --enable-multivalue --enable-nontrapping-float-to-int --enable-sign-ext --enable-reference-types --enable-bulk-memory --enable-extended-const --strip --strip-producers",
+  "libc-gen (runtime)",
+  "libc-gen (grammars) -deref-mem",
+  "wasm2go -embed -unsafe",
+]
+
+[[toolchains]]
+name = "wasi-sdk"
+version = "34.0"
+sha256 = "b761e3a0721dbae9c09a0059e5fdb2bf917d1b4a8a7b430fb3b5aafb0984b2c4"
+
+[[toolchains]]
+name = "binaryen"
+version = "133"
+sha256 = "2dc9c7813f5375db93d96ead4b78222fcc3e2677bbb832297af4797782a37489"
+
+[[packages]]
+import_path = "github.com/cgofree/tree-sitter-typescript/typescript"
+sha256 = "68228e18a0e0db1c1d56b044c382a03fdb8709bbfdc2ab4365b5346e6ca04c60"
+wasm_bytes = 1429619
+go_bytes = 2293693
+api = [
+  "func Language() *treesitter.Language",
+  "translated: func (*Module) X__wasm_apply_data_relocs()",
+  "translated: func (*Module) Xtree_sitter_typescript() int32",
+  "translated: func DylinkInfo() (int64, int64, int64, int64)",
+  "translated: func New(Xenv) *Module",
+  "translated: type Memory = wasm2go_instance.Memory",
+  "translated: type Module struct",
+  "translated: type Xenv = wasm2go_instance.Xenv",
+]
+
+[[packages]]
+import_path = "github.com/cgofree/tree-sitter-typescript/tsx"
+sha256 = "99f115f9fd83abfe8e071ca44ff9c129979ea0fc4e7f8a9f8bca0760a011f2e4"
+wasm_bytes = 1464038
+go_bytes = 3052052
+api = [
+  "func Language() *treesitter.Language",
+  "translated: func (*Module) X__wasm_apply_data_relocs()",
+  "translated: func (*Module) Xtree_sitter_tsx() int32",
+  "translated: func DylinkInfo() (int64, int64, int64, int64)",
+  "translated: func New(Xenv) *Module",
+  "translated: type Memory = wasm2go_instance.Memory",
+  "translated: type Module struct",
+  "translated: type Xenv = wasm2go_instance.Xenv",
+]
+
+[verification]
+native_compiler = "cc (GCC) 16.2.1 20260819 (Red Hat 16.2.1-2)"
+inputs_sha256 = "b6917cf8470a92408fd8dc590445f6502239633700bd926908bbb1391c467661"
+
+[[verification.grammars]]
+name = "typescript"
+files = 19702
+bytes = 43748605
+api_files = 493
+
+[[verification.grammars]]
+name = "tsx"
+files = 450
+bytes = 243622
+api_files = 12
