@@ -1,0 +1,7 @@
+format_version = 1
+
+[[entry]]
+id = "rlsbl:go-toolchain-declared"
+current = "off"
+ideal = "off"
+reason = "a generated module is tested at its go directive's version, the oldest its consumers may use, and has no development Go of its own"
