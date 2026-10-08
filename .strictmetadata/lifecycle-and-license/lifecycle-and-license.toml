@@ -4,3 +4,8 @@ subject = "tree-sitter-typescript"
 status = "active"
 from = 2026-10-08
 reason = "cgofree releases it from its first release on"
+[[licenses]]
+subject = "tree-sitter-typescript"
+license = "MIT"
+from = 2026-10-08
+reason = "the license of upstream tree-sitter-typescript, as its license file states"
